@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,13 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				aidly: {
+					red: '#ea384c',
+					dark: '#222222',
+					black: '#000000',
+					gray: '#555555',
+					lightgray: '#f5f5f5',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -84,12 +92,52 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'float': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' },
+                },
+                'pulse-light': {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0.7' },
+                },
+                'fade-in': {
+                    '0%': { opacity: '0', transform: 'translateY(10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' }
+                },
+                'slide-in': {
+                    '0%': { transform: 'translateX(100%)' },
+                    '100%': { transform: 'translateX(0)' }
+                },
+                'slide-out': {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-100%)' }
+                },
+                'zoom-in': {
+                    '0%': { opacity: '0', transform: 'scale(0.95)' },
+                    '100%': { opacity: '1', transform: 'scale(1)' }
+                },
+                'ripple': {
+                    '0%': { transform: 'scale(0)', opacity: '1' },
+                    '100%': { transform: 'scale(4)', opacity: '0' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'float': 'float 3s ease-in-out infinite',
+                'pulse-light': 'pulse-light 2s ease-in-out infinite',
+                'fade-in': 'fade-in 0.5s ease-out',
+                'slide-in': 'slide-in 0.3s ease-out',
+                'slide-out': 'slide-out 0.3s ease-out',
+                'zoom-in': 'zoom-in 0.2s ease-out',
+                'ripple': 'ripple 0.6s linear'
+			},
+            backgroundImage: {
+                'aidly-gradient': 'linear-gradient(135deg, #222222, #ea384c)',
+                'aidly-dark-gradient': 'linear-gradient(135deg, #000000, #222222)',
+                'aidly-light-gradient': 'linear-gradient(135deg, #ea384c, #ff6b81)',
+            }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

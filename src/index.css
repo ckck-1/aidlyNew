@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,71 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom app styles */
+@layer components {
+  .btn-aidly {
+    @apply bg-aidly-gradient hover:opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md;
+  }
+  
+  .btn-aidly-outline {
+    @apply border-2 border-aidly-red text-aidly-red font-medium py-3 px-6 rounded-lg transition-all duration-300;
+  }
+  
+  .card-aidly {
+    @apply bg-white shadow-md rounded-xl p-6 transition-transform duration-300 hover:scale-[1.01];
+  }
+  
+  .input-aidly {
+    @apply bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-aidly-red;
+  }
+  
+  .page-transition {
+    @apply animate-fade-in;
+  }
+  
+  .ripple-effect {
+    @apply relative overflow-hidden;
+  }
+  
+  .ripple-effect:after {
+    @apply content-[''] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-30 rounded-full animate-ripple;
+  }
+}
+
+/* Voice ripple animation */
+.voice-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(234, 56, 76, 0.3);
+  transform: scale(0);
+  animation: ripple 2s linear infinite;
+}
+
+.voice-ripple:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.voice-ripple:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
   }
 }
